@@ -1,0 +1,38 @@
+@page "/mypage"
+
+<h3>Moja lista na C#, Zdjęcie i Generator przypadkowych liczb</h3>
+
+<h4>Lista na C# (strings)</h4>
+<ul>
+    @foreach (var item in MyList)
+    {
+        <li>@item</li>
+    }
+</ul>
+
+<h4> Generator liczb </h4>
+<button @onclick="GenerateRandomNumber">Generate Random Number</button>
+<p>Random Number: @randomNumber</p>
+
+<img src="images/picture1.jpg" alt="My Picture" />
+
+@code {
+    // lista strings
+    private List<string> MyList = new List<string>
+    {
+        "Item 1",
+        "Item 2",
+        "Item 3",
+        "Item 4",
+        "Item 5"
+    };
+
+    // generator liczb
+    private Random random = new Random();
+    private int randomNumber;
+
+    private void GenerateRandomNumber()
+    {
+        randomNumber = random.Next(1, 101); // Generates a number between 1 and 100
+    }
+}
